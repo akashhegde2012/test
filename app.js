@@ -2,7 +2,7 @@ require('dotenv').config();
 const express=require('express'),
 	app  = express();
 
-const PORT = process.env.PORT 
+const PORT = process.env.PORT || 8080
 app.get('/',(req,res)=>{
 	res.send('<h1>hello updated again sanath</h1>');
 	}
