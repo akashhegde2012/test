@@ -1,10 +1,25 @@
 require('dotenv').config();
 const express=require('express'),
-	app  = express();
+	app  = express(),
+	mysql = require('mysql');
 
-const PORT = process.env.PORT || 8080
-app.get('/',(req,res)=>{
-	res.send('<h1>hello updated again sanath</h1>');
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database:'akash',
+  port:3307
+});
+con.connect(function(err) {
+	if (err) throw err;
+	console.log("Connected!");
+  });
+const PORT = process.env.PORT || 8000
+app.get('/',async (req,res)=>{
+	await con.query('select * from t1',(err,rows,fields)=>{
+        res.status(201).send(rows);
+     });
+	// res.send('<h1>hello updated again sanath</h1>');
 	}
 );
 app.listen(PORT,()=>{
