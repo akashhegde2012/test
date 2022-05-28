@@ -13,9 +13,9 @@ app.use(cors());
 //   database:'akash',
 //   port:12254,
 // });
-con.connect(function(err) {
-	console.log("Connected!");
-  });
+// con.connect(function(err) {
+// 	console.log("Connected!");
+//   });
 const PORT = process.env.PORT || 8080
 app.get('/',async (req,res)=>{
 
