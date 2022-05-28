@@ -22,11 +22,10 @@ app.get('/',async (req,res)=>{
 	}
 );
 app.get('/mysql' ,async (req,res)=>{
-	await con.query('select * from t1',(err,rows,fields)=>{
+	 con.query('select * from t1',(err,rows,fields)=>{
       if (err){
         console.log(err);
       }
-      con.release()
         console.log(rows);
         res.status(201).send(rows);
      });
