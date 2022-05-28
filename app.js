@@ -6,14 +6,13 @@ const express=require('express'),
 app.use(cors());
 
 
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database:'akash',
-  port:12254,
-  insecureAuth : true,
-});
+// var con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "root",
+//   database:'akash',
+//   port:12254,
+// });
 con.connect(function(err) {
 	console.log("Connected!");
   });
