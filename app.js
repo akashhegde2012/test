@@ -14,7 +14,7 @@ var con = mysql.createConnection({
 });
 con.connect(function(err) {
 	console.log("Connected!");
-  });
+
 const PORT = process.env.PORT || 8080
 app.get('/',async (req,res)=>{
 
@@ -34,4 +34,4 @@ app.get('/mysql' ,async (req,res)=>{
 app.listen(PORT,()=>{
 	console.log('8080');
 	});
-	
+});
