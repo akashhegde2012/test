@@ -25,6 +25,9 @@ app.get('/',async (req,res)=>{
 );
 app.get('/mysql' ,async (req,res)=>{
 	await con.query('select * from t1',(err,rows,fields)=>{
+      if (err){
+        console.log(err);
+      }
         console.log(rows);
         res.status(201).send(rows);
      });
