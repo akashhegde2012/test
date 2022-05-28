@@ -3,18 +3,19 @@ const express=require('express'),
 	app  = express(),
 	mysql = require('mysql');
 
+
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "root",
   database:'akash',
-  port:3307
+  port:3307,
+  insecureAuth : true,
 });
 con.connect(function(err) {
-	if (err) throw err;
 	console.log("Connected!");
   });
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8080
 app.get('/',async (req,res)=>{
 	await con.query('select * from t1',(err,rows,fields)=>{
         res.status(201).send(rows);
