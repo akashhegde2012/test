@@ -23,10 +23,11 @@ app.get('/',async (req,res)=>{
 );
 app.get('/mysql' ,async (req,res)=>{
 	await con.query('select * from t1',(err,rows,fields)=>{
+        console.log(rows);
         res.status(201).send(rows);
      });
     });
-    
+
 app.listen(PORT,()=>{
 	console.log('8080');
 	});
