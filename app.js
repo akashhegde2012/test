@@ -26,6 +26,7 @@ app.get('/mysql' ,async (req,res)=>{
       if (err){
         console.log(err);
       }
+      con.release()
         console.log(rows);
         res.status(201).send(rows);
      });
