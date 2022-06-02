@@ -7,7 +7,8 @@ const express=require('express'),
   cors = require('cors');
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27018/testing");
+// mongoose.connect("mongodb://localhost:27018/testing");
+mongoose.connect("mongodb://172.19.0.2:27018/mydb")
 
 // var con = mysql.createConnection({
 //   host: "localhost",
