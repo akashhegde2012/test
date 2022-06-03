@@ -6,10 +6,15 @@ const express=require('express'),
   User = require('./models/user')
   cors = require('cors');
 app.use(cors());
+const PORT = process.env.PORT || 8080
 
 // mongoose.connect("mongodb://localhost:27018/testing");
-mongoose.connect("mongodb://127.0.0.1:27018/test_docker")
-
+// mongoose.connect("mongodb://127.0.0.1:27018/test_docker", async (err))
+mongoose.connect("mongodb://127.0.0.1:27018/test_docker",{useNewUrlParser:true,useUnifiedTopology:true})
+    .then(()=>{
+        app.listen(PORT,()=>{console.log('Server running in port '+PORT)});
+    })
+    .catch((err)=> console.log(err));
 // var con = mysql.createConnection({
 //   host: "localhost",
 //   user: "root",
@@ -20,7 +25,6 @@ mongoose.connect("mongodb://127.0.0.1:27018/test_docker")
 // con.connect(function(err) {
 // 	console.log("Connected!");
 
-const PORT = process.env.PORT || 8080
 app.get('/',async (req,res)=>{
 
 	res.send('<h1>hello updated again sanath</h1>');
@@ -42,7 +46,7 @@ app.get('/mongo' ,async (req,res)=>{
    })
     });
 
-app.listen(PORT,()=>{
-	console.log('8080');
-	});
+// app.listen(PORT,()=>{
+// 	console.log('8080');
+// 	});
 
