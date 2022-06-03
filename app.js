@@ -8,7 +8,7 @@ const express=require('express'),
 app.use(cors());
 
 // mongoose.connect("mongodb://localhost:27018/testing");
-mongoose.connect("mongodb://localhost:27018/test_docker")
+mongoose.connect("mongodb://127.0.0.1:27018/test_docker")
 
 // var con = mysql.createConnection({
 //   host: "localhost",
