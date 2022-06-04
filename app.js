@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080
 //     })
 //     .catch((err)=> console.log(err));
 var con = mysql.createPool({
-  host: "172.19.0.2",
+  host: "172.19.0.1",
   // host:'localhost',
   user: "root",
   password: "root",
@@ -49,7 +49,7 @@ app.get('/',async (req,res)=>{
 //     });
 app.get('/mysql' ,async (req,res)=>{
   con.getConnection( async (err,con)=>{
-    await con.query('select * from t1',(err,rows,fields)=>{
+    con.query('select * from t1',(err,rows,fields)=>{
       if (err){
         console.log(err);
       }
