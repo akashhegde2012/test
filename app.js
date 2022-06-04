@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080
 //         app.listen(PORT,()=>{console.log('Server running in port '+PORT)});
 //     })
 //     .catch((err)=> console.log(err));
-var con = mysql.createConnection({
+var con = mysql.createPool({
   host: "172.19.0.2",
   // host:'localhost',
   user: "root",
@@ -24,7 +24,7 @@ var con = mysql.createConnection({
   connectionLimit: 10,
   // port:8770
 });
-con.connect(function(err) {
+con.getConnection(function(err,con) {
 	console.log("Connected!");
 })
 app.get('/',async (req,res)=>{
@@ -48,13 +48,15 @@ app.get('/',async (req,res)=>{
 //    })
 //     });
 app.get('/mysql' ,async (req,res)=>{
-  con.query('select * from t1',(err,rows,fields)=>{
-     if (err){
-       console.log(err);
-     }
-       console.log(rows);
-       res.status(201).send(rows);
-      });
+  con.getConnection( async (err,con)=>{
+    await con.query('select * from t1',(err,rows,fields)=>{
+      if (err){
+        console.log(err);
+      }
+        console.log(rows);
+        res.status(201).send(rows);
+       });
+  })
    });
 
 
