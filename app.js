@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 8080
 //     })
 //     .catch((err)=> console.log(err));
 var con = mysql.createConnection({
-  host: "172.19.0.1",
+  host: "172.19.0.2",
   // host:'localhost',
   user: "root",
   password: "root",
@@ -54,7 +54,7 @@ app.get('/mysql' ,async (req,res)=>{
      }
        console.log(rows);
        res.status(201).send(rows);
-    });
+      });
    });
 
 
