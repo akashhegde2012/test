@@ -21,8 +21,7 @@ var con = mysql.createPool({
   user: "root",
   password: "root",
   database:'akash',
-  connectionLimit: 10,
-  // port:8770
+  port:8770
 });
 con.getConnection(function(err,con) {
 	console.log("Connected!");
