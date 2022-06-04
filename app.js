@@ -17,10 +17,12 @@ const PORT = process.env.PORT || 8080
 //     .catch((err)=> console.log(err));
 var con = mysql.createConnection({
   host: "172.19.0.1",
-  ser: "root",
+  // host:'localhost',
+  user: "root",
   password: "root",
   database:'akash',
   connectionLimit: 10,
+  // port:8770
 });
 con.connect(function(err) {
 	console.log("Connected!");
