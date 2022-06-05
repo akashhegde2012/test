@@ -21,7 +21,7 @@ var con = mysql.createConnection({
   user: "root",
   password: "root",
   database:'akash',
-  port:8770
+  port:6035
 });
 con.connect(function(err,con) {
 	console.log("Connected!");
