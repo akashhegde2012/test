@@ -7,7 +7,7 @@ const express=require('express'),
   cors = require('cors');
 app.use(cors());
 const PORT = process.env.PORT || 8080;
-mongoose.connect("mongodb://172.19.0.1:27703/test_docker",{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect("mongodb://172.19.0.1:27227/test_docker",{useNewUrlParser:true,useUnifiedTopology:true})
     .then(()=>{
         app.listen(PORT,()=>{console.log('Server running in port '+PORT)});
     })
