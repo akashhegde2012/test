@@ -6,6 +6,8 @@ const express=require('express'),
   User = require('./models/user')
   cors = require('cors');
 app.use(cors());
+app.set('view engine','ejs');
+
 const PORT = process.env.PORT || 8080;
 // mongoose.connect("mongodb://172.19.0.1:27245/test_docker",{useNewUrlParser:true,useUnifiedTopology:true})
 //     .then(()=>{
@@ -27,7 +29,7 @@ const PORT = process.env.PORT || 8080;
 // })
 app.get('/',async (req,res)=>{
 
-	res.send('<h1>hello updated again sanath</h1>');
+	res.render("index")
 	}
 );
 app.get('/users',async (req,res)=>{
