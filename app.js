@@ -8,7 +8,7 @@ const express=require('express'),
 app.use(cors());
 app.set('view engine','ejs');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT ;
 mongoose.connect("mongodb://172.19.0.1:27215/test_docker",{useNewUrlParser:true,useUnifiedTopology:true})
     .then(()=>{
         app.listen(PORT,()=>{console.log('Server running in port '+PORT)});
@@ -59,6 +59,6 @@ app.get('/mongo' ,async (req,res)=>{
 
 
 app.listen(PORT,()=>{
-	console.log('8080');
+	console.log(PORT);
 	});
 
