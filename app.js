@@ -9,9 +9,9 @@ app.use(cors());
 app.set('view engine','ejs');
 
 const PORT = process.env.PORT ;
-mongoose.connect("mongodb://172.19.0.1:27215/test_docker",{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect("mongodb://172.19.0.1:27845/test_docker",{useNewUrlParser:true,useUnifiedTopology:true})
     .then(()=>{
-        app.listen(PORT,()=>{console.log('Server running in port '+PORT)});
+        app.listen(PORT,()=>{console.log('Server running in port and connected to db '+PORT)});
     })
     .catch((err)=> console.log(err));
 
